@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/Student/Desktop/CANDARE/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Registration Form_files/css2" rel="stylesheet">
+    <style>
+        body {
+            .old-standard-tt-regular {
+            font-family: "Old Standard TT", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+             display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f4f8;
+        }
+        .cover-page, .form-container, .success-page {
+            display: none;
+            background-color: lightcoral;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        .cover-page h1, .form-container h2, .success-page h2 {
+            margin-bottom: 20px;
+        }
+        .start-btn, .submit-btn, .next-page-btn {
+            padding: 10px;
+            background-color: #3498db;
+            border: none;
+            color: lavender;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .start-btn:hover, .submit-btn:hover, .next-page-btn:hover {
+            background-color: hotpink;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover-page" id="coverPage" style="display: none;">
+        <h1>Welcome to the Registration Page</h1>
+        <p>Please click the button below to start your registration process.</p>
+        <button class="start-btn" onclick="showForm()">Start Registration</button>
+    </div>
+
+    <div class="form-container" id="formContainer" style="display: block;">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" placeholder="Enter your first name" required="">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" placeholder="Enter your last name" required="">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email address" required="">
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex</label>
+                <select id="sex" required="">
+                    <option value="" disabled="" selected="">Select your sex</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required="">
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" required="">
+            </div>
+            <div class="form-group">
+                <label for="address">Address (Street, Barangay, City/Municipality)</label>
+                <input type="text" id="address" placeholder="Enter your address" required="">
+            </div>
+            <div class="form-group">
+                <label for="province">Province</label>
+                <input type="text" id="province" placeholder="Enter your province" required="">
+            </div>
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+
+    <div class="success-page" id="successPage">
+        <h2>Successfully Registered!</h2>
+        <p>Thank you for registering. Your information has been submitted successfully.</p>
+        <button class="next-page-btn" onclick="nextPage()">Continue</button>
+    </div>
+
+   
+
+    <script>
+        function showForm() {
+            document.getElementById('coverPage').style.display = 'none';
+            document.getElementById('formContainer').style.display = 'block';
+        }
+
+        function nextPage() {
+            document.getElementById('successPage').style.display = 'none';
+           
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from actually submitting
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('successPage').style.display = 'block'; // Show success page
+        });
+
+        // Show cover page on load
+        window.onload = function() {
+            document.getElementById('coverPage').style.display = 'block';
+        };
+    </script>
+
+</body></html>
